@@ -1,9 +1,9 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
+  Template.etherionengine.greeting = function () {
     return "Welcome to Prototype 3.";
   };
 
-  Template.hello.events({
+  Template.etherionengine.events({
     'click input' : function () {
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
