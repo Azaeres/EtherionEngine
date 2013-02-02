@@ -38,7 +38,7 @@ var CircleSprite = cc.Sprite.extend({
         cc.drawingUtil.drawCircle(cc.PointZero(), 30, cc.DEGREES_TO_RADIANS(this._radians), 60, true);
     },
     myUpdate:function (dt) {
-        this._radians -= 6;
+        this._radians -= .6;
         //this._addDirtyRegionToDirector(this.getBoundingBoxToWorld());
     }
 });
@@ -91,17 +91,19 @@ var Helloworld = cc.Layer.extend({
         this.addChild(lazyLayer);
 
         // add "HelloWorld" splash screen"
-        this.sprite = cc.Sprite.create("res/HelloWorld.png");
+        this.sprite = cc.Sprite.create("res/ball.png");
         this.sprite.setPosition(cc.p(size.width / 2, size.height / 2));
         this.sprite.setScale(0.5);
         this.sprite.setRotation(180);
 
         lazyLayer.addChild(this.sprite, 0);
 
-        var rotateToA = cc.RotateTo.create(2, 0);
+        var repeat = cc.RepeatForever.create(cc.RotateBy.create(1.0, 360));
+        // var rotateToA = cc.RotateBy.create(2, 0);
         var scaleToA = cc.ScaleTo.create(2, 1, 1);
 
-        this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
+        // this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
+        this.sprite.runAction(repeat);
 
         this.circle = new CircleSprite();
         this.circle.setPosition(cc.p(40, size.height - 60));
@@ -158,7 +160,7 @@ var Helloworld = cc.Layer.extend({
     onTouchesMoved:function (touches, event) {
         if (this.isMouseDown) {
             if (touches) {
-                //this.circle.setPosition(cc.p(touches[0].getLocation().x, touches[0].getLocation().y));
+                this.circle.setPosition(cc.p(touches[0].getLocation().x, touches[0].getLocation().y));
             }
         }
     },
