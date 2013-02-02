@@ -64,18 +64,18 @@ var Helloworld = cc.Layer.extend({
         var size = cc.Director.getInstance().getWinSize();
 
         // add a "close" icon to exit the progress. it's an autorelease object
-        var closeItem = cc.MenuItemImage.create(
-            "res/CloseNormal.png",
-            "res/CloseSelected.png",
-            function () {
-                history.go(-1);
-            },this);
-        closeItem.setAnchorPoint(cc.p(0.5, 0.5));
+        // var closeItem = cc.MenuItemImage.create(
+        //     "res/CloseNormal.png",
+        //     "res/CloseSelected.png",
+        //     function () {
+        //         history.go(-1);
+        //     },this);
+        // closeItem.setAnchorPoint(cc.p(0.5, 0.5));
 
-        var menu = cc.Menu.create(closeItem);
-        menu.setPosition(cc.PointZero());
-        this.addChild(menu, 1);
-        closeItem.setPosition(cc.p(size.width - 20, 20));
+        // var menu = cc.Menu.create(closeItem);
+        // menu.setPosition(cc.PointZero());
+        // this.addChild(menu, 1);
+        // closeItem.setPosition(cc.p(size.width - 20, 20));
 
         /////////////////////////////
         // 3. add your codes below...
